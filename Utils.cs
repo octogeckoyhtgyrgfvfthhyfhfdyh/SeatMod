@@ -42,15 +42,19 @@ namespace SeatMod
             //Main.Logger.Msg(bio);
             //Main.Logger.Msg(status);
             if(statusType == "busy" || status.Contains("nosit"))
-                return 3;
+                return 1;
 
             if (bio.Contains(Main.privateKey.ToString()) || status.Contains(Main.privateKey.ToString()) ||
                 bio.Contains("siton") || status.Contains("siton") ||
                 bio.Contains("sit with me") || status.Contains("sit with me") ||
-                bio.Contains("seats together") || status.Contains("seats together")
+                bio.Contains("seats together") || status.Contains("seats together") ||
+                bio.Contains(" ") || status.Contains(" ") ||
+                bio.Contains("/") || status.Contains("/") ||
+                bio.Contains("online") || status.Contains("online") ||
+                bio.Contains("do not disturb") || status.Contains("do not disturb") ||
                 )
                 return 1;
-            else return 0;
+            else return 1;
         }
         public static string RandomString(int length)
         {
